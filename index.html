@@ -6,65 +6,120 @@
     <title>PROXY | Profile</title>
     <style>
         :root {
-            --primary-color: #00d2ff;
-            --glass-bg: rgba(0, 0, 0, 0.4); /* Thoda dark kiya taaki text dikhe */
-            --border-color: rgba(255, 255, 255, 0.1);
+            --primary-color: #00d2ff; /* [cite: 2] */
+            --glass-bg: rgba(0, 0, 0, 0.5); /* Video ke upar text dikhne ke liye dark glass [cite: 3] */
+            --border-color: rgba(255, 255, 255, 0.1); /* [cite: 3] */
         }
 
-        /* Video styling */
+        /* --- Background Video Setup --- */
         #bg-video {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Video stretch nahi hogi */
-            z-index: -1; /* Video ko text ke piche bhejne ke liye */
+            object-fit: cover;
+            z-index: -1; /* Video piche rahegi [cite: 5, 8] */
         }
 
         body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden; /* Side scrolling rokne ke liye */
+            margin: 0; /* [cite: 4] */
+            font-family: 'Segoe UI', sans-serif; /*  */
+            color: white; /*  */
+            display: flex; /*  */
+            justify-content: center; /*  */
+            align-items: center; /*  */
+            min-height: 100vh; /*  */
+            background: transparent; /* Video dikhne ke liye [cite: 6] */
+            overflow-x: hidden;
         }
 
         .container {
-            width: 90%;
-            max-width: 450px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px); /* Glass effect */
+            width: 90%; /* [cite: 7] */
+            max-width: 450px; /* [cite: 7] */
+            background: var(--glass-bg); /* [cite: 7] */
+            backdrop-filter: blur(15px); /* [cite: 7] */
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-color);
-            border-radius: 25px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color); /* [cite: 7] */
+            border-radius: 25px; /* [cite: 7] */
+            padding: 30px; /* [cite: 7] */
+            text-align: center; /* [cite: 7] */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* [cite: 8] */
             position: relative;
-            z-index: 1; /* Content ko upar rakhne ke liye */
+            z-index: 1;
         }
 
-        /* --- Baaki Saari CSS Same Rahegi --- */
         .profile-img {
-            width: 110px; height: 110px; border-radius: 50%;
-            border: 3px solid var(--primary-color); margin-bottom: 15px;
-            box-shadow: 0 0 15px var(--primary-color); object-fit: cover;
+            width: 110px; /* [cite: 8] */
+            height: 110px; /*  */
+            border-radius: 50%; /*  */
+            border: 3px solid var(--primary-color); /*  */
+            margin-bottom: 15px; /*  */
+            box-shadow: 0 0 15px var(--primary-color); /*  */
+            object-fit: cover; /*  */
         }
-        h2.title { font-size: 1rem; color: #888; margin-bottom: 5px; letter-spacing: 2px; }
-        h1.main-name { font-size: 1.5rem; margin: 0 0 20px 0; color: #fff; }
-        .info-card { background: rgba(255,255,255,0.03); border-radius: 15px; padding: 15px; text-align: left; margin-bottom: 20px; border: 1px solid var(--border-color); }
-        .info-item { margin-bottom: 12px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; }
-        .label { color: #888; font-size: 0.75rem; font-weight: bold; display: block; }
-        .value { color: #00d2ff; font-size: 0.95rem; display: block; margin-top: 2px; }
-        .btn-main { display: block; background: var(--primary-color); color: black; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-bottom: 15px; transition: 0.3s; }
-        .nav-links { display: flex; justify-content: space-around; margin-top: 20px; }
-        .nav-links a { color: #666; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary-color); }
-        .glitch-footer { font-size: 0.8rem; color: #444; margin-top: 20px; letter-spacing: 1px; }
+
+        h2.title { font-size: 1rem; color: #888; margin-bottom: 5px; letter-spacing: 2px; } /* [cite: 10] */
+        h1.main-name { font-size: 1.5rem; margin: 0 0 20px 0; color: #fff; } /* [cite: 11] */
+
+        .info-card {
+            background: rgba(255,255,255,0.03); /* [cite: 12] */
+            border-radius: 15px; /* [cite: 13] */
+            padding: 15px; /* [cite: 13] */
+            text-align: left; /* [cite: 13] */
+            margin-bottom: 20px; /* [cite: 13] */
+            border: 1px solid var(--border-color); /* [cite: 13] */
+        }
+
+        .info-item { margin-bottom: 12px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; } /* [cite: 14] */
+        .label { color: #888; font-size: 0.75rem; font-weight: bold; display: block; } /* [cite: 15] */
+        .value { color: #00d2ff; font-size: 0.95rem; display: block; margin-top: 2px; } /* [cite: 16] */
+
+        /* --- Glowing Contact Button --- */
+        .btn-main {
+            display: block; /* [cite: 17] */
+            background: var(--primary-color); /* [cite: 18] */
+            color: black; /* [cite: 18] */
+            padding: 12px; /* [cite: 18] */
+            border-radius: 12px; /* [cite: 18] */
+            text-decoration: none; /* [cite: 18] */
+            font-weight: bold; /* [cite: 18] */
+            margin-bottom: 15px; /* [cite: 18] */
+            transition: 0.3s; /* [cite: 18] */
+            box-shadow: 0 0 15px var(--primary-color); /* [cite: 19] */
+        }
+
+        .btn-main:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px var(--primary-color);
+        }
+
+        /* --- Glowing Nav Links (Works & Channels) --- */
+        .nav-links {
+            display: flex; /* [cite: 19] */
+            justify-content: space-around; /* [cite: 20] */
+            margin-top: 20px; /* [cite: 20] */
+        }
+
+        .nav-links a {
+            color: var(--primary-color); /* [cite: 20] */
+            text-decoration: none; /* [cite: 21] */
+            font-size: 0.8rem; /* [cite: 21] */
+            letter-spacing: 1px; /* [cite: 21] */
+            transition: 0.3s; /* [cite: 21] */
+            padding: 5px 10px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 8px;
+            text-shadow: 0 0 8px var(--primary-color); /* Text Glow */
+        }
+
+        .nav-links a:hover { 
+            color: white; /* [cite: 21] */
+            box-shadow: 0 0 15px var(--primary-color); /* Box Glow */
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .glitch-footer { font-size: 0.8rem; color: #444; margin-top: 20px; letter-spacing: 1px; } /* [cite: 22] */
     </style>
 </head>
 <body>
@@ -74,46 +129,26 @@
 </video>
 
 <div class="container">
-    <img src="dp.jpg" alt="PROXY" class="profile-img">
-
-    <h2 class="title">🔻💻 𝗔𝗕𝗢𝗨𝗧 💻🔻</h2>
-    <h1 class="main-name">•𝗣 𝗥 𝗢 𝗫 𝗬𐏓𝟑🕸️</h1>
-
-    <div class="info-card">
+    <img src="dp.jpg" alt="PROXY" class="profile-img"> <h2 class="title">🔻💻 𝗔𝗕𝗢𝗨𝗧 💻🔻</h2> <h1 class="main-name">•𝗣 𝗥 𝗢 𝗫 𝗬𐏓𝟑🕸️</h1> <div class="info-card">
         <div class="info-item">
-            <span class="label">🕸️ 𝗧𝗘𝗟𝗘𝗚𝗥𝗔𝗠 𝗡𝗔𝗠𝗘</span>
-            <span class="value">⚡ 𝐏𝐑𝐎𝐗𝐘 𐏓𝟑 ⚕️</span>
-        </div>
+            <span class="label">🕸️ 𝗧𝗘𝗟𝗘𝗚𝗥𝗔𝗠 𝗡𝗔𝗠𝗘</span> <span class="value">⚡ 𝐏𝐑𝐎𝐗𝐘 𐏓𝟑 ⚕️</span> </div>
         <div class="info-item">
-            <span class="label">🕸️ 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘</span>
-            <span class="value">🎧 @Proxyfxz</span>
-        </div>
+            <span class="label">🕸️ 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘</span> <span class="value">🎧 @Proxyfxz</span> </div>
         <div class="info-item">
-            <span class="label">🕸️ 𝗨𝗦𝗘𝗥 𝗜𝗗</span>
-            <span class="value">🎧 8210445482</span>
-        </div>
+            <span class="label">🕸️ 𝗨𝗦𝗘𝗥 𝗜𝗗</span> <span class="value">🎧 8210445482</span> </div>
         <div class="info-item">
-            <span class="label">🕸️ 𝗕𝗜𝗥𝗧𝗛</span>
-            <span class="value">🎧 24 • OCT 🕶️</span>
-        </div>
+            <span class="label">🕸️ 𝗕𝗜𝗥𝗧𝗛</span> <span class="value">🎧 24 • OCT 🕶️</span> </div>
         <div class="info-item">
-            <span class="label">🕸️ 𝗦𝗧𝗨𝗗𝗬</span>
-            <span class="value">🎧 👨‍💻 𝙀𝙣𝙜𝙞𝙣𝙚𝙚𝙧𝙞𝙣𝙜</span>
-        </div>
+            <span class="label">🕸️ 𝗦𝗧𝗨𝗗𝗬</span> <span class="value">🎧 👨‍💻 𝙀𝙣𝙜𝙞𝙣𝙚𝙚𝙧𝙞𝙣𝙜</span> </div>
     </div>
 
-    <a href="https://t.me/Proxyfxz" class="btn-main">CONTACT PROXY</a>
-
-    <div class="nav-links">
-        <a href="works.html">[ MY WORKS ]</a>
-        <a href="links.html">[ CHANNELS ]</a>
-    </div>
+    <a href="https://t.me/Proxyfxz" class="btn-main">CONTACT PROXY</a> <div class="nav-links">
+        <a href="works.html">[ MY WORKS ]</a> <a href="links.html">[ CHANNELS ]</a> </div>
 
     <div class="glitch-footer">
-        • 𝗖𝗢𝗗𝗘 • 𝗖𝗥𝗘𝗔𝗧𝗘 • 𝗗𝗢𝗠𝗜𝗡𝗔𝗧𝗘 •<br>
-        💢 𝐋ɪᴠɪɴɢ 𝐈ɴ 𝐌ʏ 𝐎ᴡɴ 𝐆ʟɪᴛᴄʜᴇᴅ 𝐖ᴏʀʟᴅ 💢
-    </div>
+        • 𝗖𝗢𝗗𝗘 • 𝗖𝗥𝗘𝗔𝗧𝗘 • 𝗗𝗢𝗠𝗜𝗡𝗔𝗧𝗘 •<br> 💢 𝐋ɪ𝐯ɪɴɢ 𝐈ɴ 𝐌ʏ 𝐎ᴡɴ 𝐆ʟɪᴛᴄʜᴇᴅ 𝐖ᴏʀʟᴅ 💢 </div>
 </div>
 
 </body>
-    </html>            
+</html>
+        
